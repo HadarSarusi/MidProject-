@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { getUserTodos, updateUser,deleteUser } from './Service'
-import DataUser from './DataUser'
 
 export default function User(props) { // props={userData: {id: 1, name: "Leanne Graham", email: "}
     const[completed, setCompleted] = useState(false)
@@ -9,7 +8,6 @@ export default function User(props) { // props={userData: {id: 1, name: "Leanne 
     const[newUser, setNewUser] = useState(props.userData)//the new user that we want to update
     const [isClicked, setIsClicked] = useState(false)
     
-
     useEffect(()=>{
         fetchTodos();
        }, [])
@@ -17,7 +15,6 @@ export default function User(props) { // props={userData: {id: 1, name: "Leanne 
     useEffect(()=>{
         setCompleted(todos.every(todo => todo.completed))
     }, [todos])
-
 
     const fetchTodos = async () => 
     {
@@ -42,11 +39,6 @@ export default function User(props) { // props={userData: {id: 1, name: "Leanne 
         setIsClicked(true)
         props.callback2(props.userData.id)
     }
-
-    // const show = ()=>
-    // {
-    //   props.callback2(props.userData.id)
-    // }
     
     return (
         <div>
@@ -74,16 +66,6 @@ export default function User(props) { // props={userData: {id: 1, name: "Leanne 
           </div>
         )} <br />
       </div>
-      {/* <div>
-         {isClicked && show}
-      </div> */}
-      {/* <div>
-         {isClicked &&
-            (<div>
-                <DataUser key={props.userData.id} userId = {props.userData.id} />
-            </div>)}
-      </div> */}
       </div>
-
     )
 }
