@@ -25,11 +25,8 @@ export default function Users(props) {
     const showDataUser = (id) =>
     {
         props.callbackID(id)
-    }
-
-    useEffect(()=>{
         props.callbackIsShow(true)
-       }, [props.callbackID])
+    }
     
     useEffect(()=>{
         fetchUsers();
